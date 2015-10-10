@@ -1,8 +1,11 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var request = require('request');
 var Schema = mongoose.Schema;
 var moment = require('moment');
+
+var buildingEnergyData = require('./buildingEnergyData');
 
 var BuildingSchema = new Schema({
   buildingName: {
@@ -26,5 +29,44 @@ exports.create = function(name, cb) {
     cb(null, ib);
   });
 };
+
+exports.storeEnergyData = function(usagepoint, cb) {
+  console.log("Reached here");
+  /*request({
+    url: config.civisURL + '/energyplatform.svc/getallsensors',
+    qs: {
+    }
+  }, function(err, res, body) {
+    if (err) {
+      cb(err);
+    } else {
+      var parser = new xml2js.Parser({
+        explicitArray: false
+      });
+      parser.parseString(body, function(err, result) {
+        if (err) {
+          cb(err);
+        }
+        var tempArr = [];
+
+        async.each(result.entry.content.usagePoint, function(obj, callback) {
+          exports.create(obj, function(err, success) {
+            if (err) {
+              tempArr.push(success);
+              callback();
+            } else {
+              tempArr.push(success);
+              callback();
+            }
+          });
+        }, function(err) {
+          if (err) {cb(err);}
+          cb(null, tempArr);
+        });
+      });
+    }
+  });*/
+};
+
 
 exports.model = BuildingBlock;

@@ -85,7 +85,7 @@ app.get('/apidoc', function(req, res, next) {
   }
 });
 app.use('/apidoc', express.static(__dirname + '/apidoc'));
-
+app.use('/resources',express.static(__dirname + '/resources'));
 db.on('error', l.error.bind(console, 'connection error:'));
 db.once('open', function() {
   l.info('connected to database');

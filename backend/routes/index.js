@@ -13,6 +13,6 @@ router.use('/auth', require('./auth'));
 router.use('/household', require('./household'));
 router.use('/community', require('./community'));
 router.use('/cooperative', require('./cooperative'));
-router.use('/frontend', require('./frontend'));
+router.use('/buildings', require('./buildings'));
 
 module.exports = router;
