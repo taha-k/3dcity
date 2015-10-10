@@ -11,6 +11,7 @@ var achievements = require('../common/achievements');
 var User = require('../models').users;
 var Log = require('../models').logs;
 var defaultPath = path.dirname(require.main.filename) + '/res/missingProfile.png';
+var Building = require('../models').building;
 
 router.get('/', function (req, res) {
   //res.send('Hello World!');
@@ -59,7 +60,7 @@ router.get('/', function (req, res) {
  *   ]
  */
 router.post('/storeEnergyData', function(req, res) {
-  Consumption.storeEnergyData(req.body, res.successRes);
+  Building.storeEnergyData(req.body, res.successRes);
 });
 
 module.exports = router;

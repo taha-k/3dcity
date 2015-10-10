@@ -12,3 +12,4 @@ exports.logs = require('./logs');
 exports.users = require('./users');
 exports.sensor = require('./sensor');
 exports.usagePoint = require('./usagePoint');
+exports.building = require('./building');

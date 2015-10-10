@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var Schema = mongoose.Schema;
 var moment = require('moment');
+var fast-csv = require('fast-csv');
 
 var buildingEnergyData = require('./buildingEnergyData');
 
@@ -32,6 +33,18 @@ exports.create = function(name, cb) {
 
 exports.storeEnergyData = function(usagepoint, cb) {
   console.log("Reached here");
+  var stream = fs.createReadStream("my.csv");
+   
+  var csvStream = csv()
+      .on("data", function(data){
+           console.log(data);
+      })
+      .on("end", function(){
+           console.log("done");
+      });
+   
+  stream.pipe(csvStream);
+
   /*request({
     url: config.civisURL + '/energyplatform.svc/getallsensors',
     qs: {
