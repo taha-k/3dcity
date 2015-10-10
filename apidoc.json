@@ -1,0 +1,10 @@
+{
+  "name": "LapinKulta backend API",
+  "version": "0.1.0",
+  "description": "Documentation for the backend API calls. Note that most calls require authentication, with HTTP headers such as: \"Authorization: Bearer 615ea82f7fec0ffaee5...\".",
+  "title": "LapinKulta backend API documentation",
+  "url": "/api",
+  "template": {
+    "withCompare": false
+  }
+}
