@@ -15,24 +15,62 @@
       <div class="container">
         <div class = "row">
           <div class = "col-md-8">
-            <img src="http://cliparts.co/cliparts/5TR/eLk/5TReLkjGc.jpg" width = "400px"/>
+            <a class="js-open-modal" href="#" data-modal-id="popup_desc"><img src="http://cliparts.co/cliparts/5TR/eLk/5TReLkjGc.jpg" width = "400px"/></a>
           </div>
           <div class = "col-md-4">
             <h2>10 October 2015</h2>
-            <a class="js-open-modal" href="#" data-modal-id="popup"><h3>Electricity</h3></a>
+            <a class="js-open-modal" href="#" data-modal-id="popup_elec"><h3>Electricity</h3></a>
             <p>365.9 KW</p>
-            <h3 id="headting">Heating</h3>
+            <a class="js-open-modal" href="#" data-modal-id="popup_heat"><h3>Heating</h3></a>
             <p>924.3 KW</p>
-            <h3 id="water">Water</h3>
+            <a class="js-open-modal" href="#" data-modal-id="popup_water"><h3>Water</h3></a>
             <p>63.8 m3</p>
           </div>
           <!--Modal box-->
-          <div id="popup" class="modal-box"> 
+          <div id="popup_elec" class="modal-box"> 
             <header>
               <a href="#" class="js-modal-close close">×</a><h3>Electricity Usage</h3>
             </header>
             <div class="modal-body">
               <img class="modal-image" align="center" src="../resources/images/electricity_chart.png"/>
+            </div>
+          </div>
+          <div id="popup_heat" class="modal-box"> 
+            <header>
+              <a href="#" class="js-modal-close close">×</a><h3>Heating Usage</h3>
+            </header>
+            <div class="modal-body">
+              <img class="modal-image" align="center" src="../resources/images/heating_chart.png"/>
+            </div>
+          </div>
+          <div id="popup_water" class="modal-box"> 
+            <header>
+              <a href="#" class="js-modal-close close">×</a><h3>Water Usage</h3>
+            </header>
+            <div class="modal-body">
+              <img class="modal-image" align="center" src="../resources/images/water_chart.png"/>
+            </div>
+          </div>
+          <div id="popup_desc" class="modal-box"> 
+            <header>
+              <a href="#" class="js-modal-close close">×</a><h3>What the color means...</h3>
+            </header>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="modal-image" align="center" style="width:100px;padding:10px" src="../resources/images/green.png"/>
+                  <p style="text-align:center">I'm healthy. You're doing a great job!</p>
+                </div>
+                <div class="col-md-4">
+                  <img class="modal-image" align="center" style="width:100px;padding:10px" src="../resources/images/orange.png" />
+                  <p style="text-align:center">Things can be better. Help me turn off some lights.</p>
+                </div>
+                <div class="col-md-4">
+                  <img class="modal-image" align="center" style="width:100px; padding:10px" src="../resources/images/red.png"/>
+                  <p style="text-align:center">Please share a room with others to save me.</p>
+                </div>
+              </div>
+              
             </div>
           </div>
 
