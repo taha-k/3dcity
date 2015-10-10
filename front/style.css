@@ -1,0 +1,91 @@
+.container {
+  max-width: 928px;
+}
+
+h1, h2, p, a {
+  font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+a {
+  font-size:18px;
+  font-weight: 200;
+}
+
+.main {
+  height: 550px;
+  padding-top: 55px;
+}
+
+.main p {
+  font-size: 26px;
+  font-weight: 200;  
+  margin-bottom: 40px;
+}
+
+.section .row {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.store {
+  text-align: center;
+  border-bottom: 0px;
+  padding-bottom:100px
+}
+
+.footer {
+  border-top: 1px solid #dbdbdb;
+  background-color: #f3f3f3;
+  padding: 20px 0px 80px;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer li {
+  color: #999;
+  font-weight: 600;
+}
+
+.col-md-6 .btn-col-6 {
+  background-color: rgba(86, 146, 255, 0.9);
+  border-radius: 4px;
+  padding: 10px 10px;
+  transition: box-shadow 0.5s;
+  padding: 10px 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top:5%;
+  margin-bottom:5%;
+  text-align: center;
+}
+
+.col-md-6 .btn-col-6 a {
+  color: #fff;
+  padding: 10px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .col-md-6 img {
+    padding: 50px;
+    width: 100%;
+  }
+}
