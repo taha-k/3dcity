@@ -22,65 +22,71 @@ var BuildingBlock = mongoose.model('BuildingBlock', BuildingSchema);
 
 exports.create = function(name, cb) {
   //console.log('TADA', intervalBlock, _apartmentId)
-  BuildingBlock.create({
-    buildingName: name,
-  }, function(err, ib) {
-    if (err) {
-      //console.log("ERROR creating IB", err);
+  BuildingBlock.findOne({buildingName: name}, false, function(err, user) {
+    if(err) {
       cb(err);
+    } else if(!user) {
+      BuildingBlock.create({
+        buildingName: name,
+      }, function(err, ib) {
+        if (err) {
+          //console.log("ERROR creating IB", err);
+          cb(err);
+        }
+        cb(null, ib);
+      });    
+    } else {
+      cb(null,user);
     }
-    cb(null, ib);
+
   });
+  
 };
 
 exports.storeEnergyData = function(usagepoint, cb) {
+  console.log(usagepoint);
+  var tempArr=[];
   console.log("Reached here",path.join(__dirname+'../../../data/Electricity.csv'));
-  var stream = fs.createReadStream(path.join(__dirname+'../../../data/Electricity.csv'));
-   
-  var csvStream = csv()
+  exports.create(usagepoint.BuildingName, function(err,ib){
+    console.log('BUILDINGx',ib);
+    var stream = fs.createReadStream(path.join(__dirname+'../../../data/'+usagepoint.fileName));
+    csv
+      .fromStream(stream, {headers : ["timePeriod", "kvalue"],delimiter:';'})
       .on("data", function(data){
-           console.log(data);
-      })
-      .on("end", function(){
-           console.log("done");
-      });
-   
-  stream.pipe(csvStream);
-
-  /*request({
-    url: config.civisURL + '/energyplatform.svc/getallsensors',
-    qs: {
-    }
-  }, function(err, res, body) {
-    if (err) {
-      cb(err);
-    } else {
-      var parser = new xml2js.Parser({
-        explicitArray: false
-      });
-      parser.parseString(body, function(err, result) {
-        if (err) {
-          cb(err);
-        }
-        var tempArr = [];
-
-        async.each(result.entry.content.usagePoint, function(obj, callback) {
-          exports.create(obj, function(err, success) {
-            if (err) {
-              tempArr.push(success);
-              callback();
+        if(data.timePeriod!=='' || data.kvalue!=='') {
+          buildingEnergyData.create(data,ib,usagepoint.Type, function(err,bd){
+            //console.log("RRRRRR",data,ib,usagepoint.Type);
+            if(!err){
+              tempArr.push(bd);
             } else {
-              tempArr.push(success);
-              callback();
             }
           });
-        }, function(err) {
-          if (err) {cb(err);}
-          cb(null, tempArr);
-        });
+        }
+        
+      })
+      .on("end", function(){
+        console.log("done");
+        cb(null,tempArr);
+    });  
+  });
+};
+
+exports.get = function(params, cb) {
+  console.log(params);
+  BuildingBlock.findOne({buildingName: params.buildingName}, false, function(err, bb) {
+    if(err){
+      cb(err);
+    } else {
+      buildingEnergyData.find(bb._id, params.Type, function(err, dataArr) {
+        if(err) {
+          cb(err);
+        } else {
+          cb(null,dataArr)
+        }
       });
+
     }
-  });*/
+  });
 };
 
 

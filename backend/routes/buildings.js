@@ -22,9 +22,8 @@ router.get('/', function (req, res) {
  * @api {post} /buildings/storeEnergyData Fetch all UsagePoints & Sensors from Reply
  * @apiGroup buildings
  *
- * @apiParam {Boolean} AddUsagePoints adds new usage points only
- * @apiParam {Boolean} [UpdateUsagePoints] updates existing UsagePoints
- *   with new sensor data if available
+ * @apiParam {String} BuildingName Name of the building
+ * @apiParam {String} Type Electricity/Heating/Water
  * @apiParam {[Number]} [ApartmentId] Adds/Updates the value of only
  *  that particular ApartmentId/Ids
  * @apiExample {curl} Example usage(PENDING-For now only data is fetched!!):
@@ -33,9 +32,9 @@ router.get('/', function (req, res) {
  *
  *  curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $API_TOKEN" -d \
  *  '{
- *    'AddUsagePoints': true,
- *    'UpdateUsagePoints': true,
- *    'ApartmentId': [14,17]
+ *    'BuildingName': 'Marintalo',
+ *    'Type': 'Electricity',
+ *	  'fileName':'Electricity.csv'
  *  }' \
  *  http://localhost:3000/api/consumption/getAllUsagePointsData
  *
@@ -61,6 +60,19 @@ router.get('/', function (req, res) {
  */
 router.post('/storeEnergyData', function(req, res) {
   Building.storeEnergyData(req.body, res.successRes);
+});
+
+/**
+ * @api {get} /buildings/getData Get energy consumption data
+ * @apiGroup buildings
+ *
+ * @apiParam {String} buildingName Name of the Building
+ * @apiParam {String} Type Electricity/Heating/Water
+ *
+ * @apiVersion 1.0.0
+ */
+router.get('/getData', function(req, res) {
+  Building.get(req.body, res.successRes);
 });
 
 module.exports = router;

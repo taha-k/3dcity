@@ -44,7 +44,7 @@ mkdirp(path.join(home, '.youpower', 'actionPictures'));
 mkdirp(path.join(home, '.youpower', 'profilePictures'));
 mkdirp(path.join(home, '.youpower', 'communityPictures'));
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/youpower');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/3dcity');
 var db = mongoose.connection;
 var app = express();
 app.set('view engine', 'jade');
