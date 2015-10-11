@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var apidoc = require('gulp-apidoc');
+var ghPages = require('gulp-gh-pages');
 var spawn = require('child_process').spawn,
     node;
 

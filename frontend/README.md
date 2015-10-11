@@ -1,5 +1,5 @@
-# YouPower frontend
-This is the frontend of the YouPower project.
+# ESTIA frontend
+This is the frontend of the ESTIA project.
 
 ## Setup
 ```

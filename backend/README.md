@@ -1,6 +1,6 @@
-# YouPower backend
+# ESTIA backend
 
-This is the backend of the YouPower app.
+This is the backend of the ESTIA app.
 
 ## Setup
 
@@ -15,7 +15,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 Then:
 ```
-cd YouPower/    # move into project root
+cd 3dcity/    # move into project root
 npm install     # install dependencies
 
 # run server:
@@ -87,7 +87,7 @@ Run it as
 It defaults to a local mongodb instance (named youpower), you can change this
 by setting the `MONGO_URL` environment variable as such:
 
-    MONGO_URL=mongodb://somewhere.else.com/youpower node metricsViewer.js
+    MONGO_URL=mongodb://somewhere.else.com/3dcity node metricsViewer.js
 
 ## Inserting default data into the database
 When first launching the application it is pretty useless, since the database
