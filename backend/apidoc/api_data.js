@@ -3425,6 +3425,20 @@ define({ "api": [
             "optional": false,
             "field": "Type",
             "description": "<p>Electricity/Heating/Water</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "fromT",
+            "description": "<p>from time</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "toT",
+            "description": "<p>to time</p> "
           }
         ]
       }

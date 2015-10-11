@@ -75,7 +75,8 @@ app.use(expressValidator());
 app.use(require('./middleware/auth').initialize());
 app.use('/api', require('./routes'));
 app.get('/', function(req, res) {
-  res.redirect('/apidoc');
+  //res.redirect('/apidoc');
+  res.redirect('/api/buildings');
 });
 app.get('/apidoc', function(req, res, next) {
   if (fs.existsSync(__dirname + '/apidoc/index.html')) {
