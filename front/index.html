@@ -121,6 +121,26 @@
 
     <script src="../resources/js/jquery.min.js"></script>
     <script src="../resources/js/app.js"></script>
-
+    <script>
+      function CallMethod() {
+    /*$.getJSON('buildings/getData', 
+     {
+   buildingName: "Marintalo",
+   Type: "Electricity"
+     }, function(data) {
+         console.log("lala",data);
+     });*/
+$.ajax({
+    url: 'buildings/getData',
+    type: 'POST',
+    data: {
+   buildingName: "Marintalo",
+   Type: "Electricity"
+     }, // or $('#myform').serializeArray()
+    success: function(data) { console.log(data); }
+});
+    }
+    CallMethod();
+    </script>
   </body>
 </html>

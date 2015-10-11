@@ -3403,5 +3403,88 @@ define({ "api": [
     "filename": "backend/routes/userAction.js",
     "groupTitle": "User_Action",
     "name": "PostUserActionActionid"
+  },
+  {
+    "type": "get",
+    "url": "/buildings/getData",
+    "title": "Get energy consumption data",
+    "group": "buildings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "buildingName",
+            "description": "<p>Name of the Building</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "Type",
+            "description": "<p>Electricity/Heating/Water</p> "
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "filename": "backend/routes/buildings.js",
+    "groupTitle": "buildings",
+    "name": "GetBuildingsGetdata"
+  },
+  {
+    "type": "post",
+    "url": "/buildings/storeEnergyData",
+    "title": "Fetch all UsagePoints & Sensors from Reply",
+    "group": "buildings",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "BuildingName",
+            "description": "<p>Name of the building</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "Type",
+            "description": "<p>Electricity/Heating/Water</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>[Number]</p> ",
+            "optional": true,
+            "field": "ApartmentId",
+            "description": "<p>Adds/Updates the value of only that particular ApartmentId/Ids</p> "
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage(PENDING-For now only data is fetched!!):",
+        "content": " # Get API token via /api/user/token\n export API_TOKEN=fc35e6b2f27e0f5ef...\n\n curl -i -X POST -H \"Content-Type: application/json\" -H \"Authorization: Bearer $API_TOKEN\" -d \\\n '{\n   'BuildingName': 'Marintalo',\n   'Type': 'Electricity',\n\t  'fileName':'Electricity.csv'\n }' \\\n http://localhost:3000/api/consumption/getAllUsagePointsData",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "[\n { ApartmentID: '14',\n   Success: true,\n   UsagePoint: { __v: 0, apartmentId: '14', _id: 55acb78868440371168b57c7 }\n },\n { ApartmentID: '42',\n   Success: true,\n   UsagePoint: { __v: 0, apartmentId: '42', _id: 55acb78868440371168b57cc }\n },\n { ApartmentID: '17',\n   Success: true,\n   UsagePoint: { __v: 0, apartmentId: '17', _id: 55acb78868440371168b57c8 }\n },\n { ApartmentID: '73',\n   Success: true,\n   UsagePoint: { __v: 0, apartmentId: '73', _id: 55acb78868440371168b57cd }\n }\n]",
+          "type": "[json]"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "backend/routes/buildings.js",
+    "groupTitle": "buildings",
+    "name": "PostBuildingsStoreenergydata"
   }
 ] });

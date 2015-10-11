@@ -68,10 +68,13 @@ router.post('/storeEnergyData', function(req, res) {
  *
  * @apiParam {String} buildingName Name of the Building
  * @apiParam {String} Type Electricity/Heating/Water
+ * @apiParam {Date} fromT from time
+ * @apiParam {Date} toT to time
  *
  * @apiVersion 1.0.0
  */
-router.get('/getData', function(req, res) {
+router.post('/getData', function(req, res) {
+	console.log("PLEASE", req.body)
   Building.get(req.body, res.successRes);
 });
 

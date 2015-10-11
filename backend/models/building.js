@@ -72,12 +72,12 @@ exports.storeEnergyData = function(usagepoint, cb) {
 };
 
 exports.get = function(params, cb) {
-  console.log(params);
+  console.log('NNNNN',params);
   BuildingBlock.findOne({buildingName: params.buildingName}, false, function(err, bb) {
     if(err){
       cb(err);
     } else {
-      buildingEnergyData.find(bb._id, params.Type, function(err, dataArr) {
+      buildingEnergyData.find(bb._id, params.Type, params, function(err, dataArr) {
         if(err) {
           cb(err);
         } else {
